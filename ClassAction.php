@@ -13,11 +13,8 @@ class Action
 
     public function doSomethingVlrType($param2)
     {
-        $return['vlr_type'] = "";
-
-        for ($c=0; $c < count($param2); $c++ ) {
-		
-            for ($d=0; $d<count($param2[$c]); $d++) {
+        for ($c = 0; $c < count($param2); $c++) {
+            for ($d = 0; $d < count($param2[$c]); $d++) {
 		    
                 switch($param2[$c]['vlr']) {
                     case ($param2[$c]['vlr'] == 0):
@@ -32,10 +29,12 @@ class Action
                     case ($param2[$c]['vlr'] > 20):
                         $return['vlr_type'] = "EXPENSIVE";
                         break;
+		            default:
+                        $return['vlr_type'] = "";
+                        break;
                 }
 		    
             }
-		
         }
 	    
         return $return['vlr_type'];
